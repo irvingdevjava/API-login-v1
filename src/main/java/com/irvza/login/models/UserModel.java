@@ -15,14 +15,16 @@ public class UserModel implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false,  unique = true)
     private String username;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String password;
     @Column(nullable = false)
     private String role;
+
+
     public int getId() {
         return id;
     }
@@ -46,6 +48,10 @@ public class UserModel implements Serializable{
     }
     public void setRole(String role) {
         this.role = role;
+    }
+    @Override
+    public String toString() {
+        return "UserModel [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
     }
 
 
